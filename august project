@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+struct Team {
+    char name[50];
+    int runs;
+    int wickets;
+    int overs;
+};
+
+void displayScoreboard(struct Team team1, struct Team team2) {
+    printf("\n-----------------------------------\n");
+    printf("          Cricket Scoreboard       \n");
+    printf("-----------------------------------\n");
+    printf("%s: %d/%d in %d overs\n", team1.name, team1.runs, team1.wickets, team1.overs);
+    printf("%s: %d/%d in %d overs\n", team2.name, team2.runs, team2.wickets, team2.overs);
+    printf("-----------------------------------\n");
+}
+
+int main() {
+    struct Team team1, team2;
+    printf("Enter name of Team 1: ");
+    fgets(team1.name, sizeof(team1.name), stdin);
+    team1.name[strcspn(team1.name, "\n")] = 0;  
+
+    printf("Enter name of Team 2: ");
+    fgets(team2.name, sizeof(team2.name), stdin);
+    team2.name[strcspn(team2.name, "\n")] = 0; 
+
+    printf("\nEnter runs for %s: ", team1.name);
+    scanf("%d", &team1.runs);
+    printf("Enter wickets for %s: ", team1.name);
+    scanf("%d", &team1.wickets);
+    printf("Enter overs for %s: ", team1.name);
+    scanf("%d", &team1.overs);
+
+    printf("\nEnter runs for %s: ", team2.name);
+    scanf("%d", &team2.runs);
+    printf("Enter wickets for %s: ", team2.name);
+    scanf("%d", &team2.wickets);
+    printf("Enter overs for %s: ", team2.name);
+    scanf("%d", &team2.overs);
+    displayScoreboard(team1, team2);
+
+    return 0;
+}
